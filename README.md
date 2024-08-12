@@ -1,3 +1,4 @@
+
 ## MongoDB Day1 Task
 
 [Data Link](https://github.com/rvsp/database/blob/master/mongodb/product.json)
@@ -6,7 +7,7 @@
 
 1. Find all the information about each products
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find()`
+`b56> db.products.find()`
 
 ```
 [
@@ -176,7 +177,7 @@
 
 2. Find the product price which are between 400 to 800
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({product_price: {$gte: 400, $lte:800}})`
+`b56> db.products.find({product_price: {$gte: 400, $lte:800}})`
 
 ```
 [
@@ -227,7 +228,7 @@
 
 3. Find the product price which are not between 400 to 600
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({$or: [{product_price: {$lt: 400}}, {product_price: {$gt:600}}]})`
+`b56> db.products.find({$or: [{product_price: {$lt: 400}}, {product_price: {$gt:600}}]})`
 
 ```
 [
@@ -397,7 +398,7 @@
 
 4. List the four product which are greater than 500 in price
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({product_price: {$gt:500}}).limit(4)`
+`b56> db.products.find({product_price: {$gt:500}}).limit(4)`
 
 ```
 [
@@ -431,7 +432,7 @@
 
 5. Find the product name and product material of each products
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({}, {product_name: 1, product_price: 1})`
+`b56> db.products.find({}, {product_name: 1, product_price: 1})`
 
 ```
 [
@@ -541,7 +542,7 @@
 
 6. Find the product with a row id of 10
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({id: "10"})`
+`b56> db.products.find({id: "10"})`
 
 ```
 [
@@ -560,7 +561,7 @@
 
 7. Find only the product name and product material
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({}, {_id: 0, product_name:1, product_material: 1})`
+`b56> db.products.find({}, {_id: 0, product_name:1, product_material: 1})`
 
 ```
 [
@@ -611,11 +612,11 @@
 
 8. Find all products which contain the value of soft in product material
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({"product_material": {"$regex": "soft", "$options": "i"}})`
+`b56> db.products.find({"product_material": {"$regex": "soft", "$options": "i"}})`
 
 or
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({product_material: /soft/i})`
+`b56> db.products.find({product_material: /soft/i})`
 
 ```
 [
@@ -658,13 +659,13 @@ or
 
 9. Find products which contain product color indigo and product price 492.00
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.find({product_color:"indigo", product_price: "492.00"})`
+`b56> db.products.find({product_color:"indigo", product_price: "492.00"})`
 
     Products not available
 
 10. Delete the products which product price value are 28
 
-`Atlas atlas-11jmps-shard-0 [primary] Roadmap-Day35-Task> db.products.deleteMany({product_price: 28})`
+`b56> db.products.deleteMany({product_price: 28})`
 
 ```
 { acknowledged: true, deletedCount: 1 }
